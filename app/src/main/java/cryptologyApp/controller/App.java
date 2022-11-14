@@ -3,12 +3,14 @@
  */
 package cryptologyApp.controller;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import cryptologyApp.view.ConsoleView;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
+public class App {
+
+  public static void main(String[] args) {
+    ConsoleView view = new ConsoleView();
+    MainController controller = new MainController(view);
+
+    controller.start();
+  }
 }
