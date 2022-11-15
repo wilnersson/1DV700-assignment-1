@@ -79,11 +79,7 @@ public class ConsoleView {
     try {
       String input = this.scanner.nextLine();
 
-      if (input.length() < 1) {
-        throw new IllegalArgumentException("Key must be at least 1 character.");
-      }
-
-      return new SubstitutionKey(input.charAt(0));
+      return new SubstitutionKey(input);
     } catch (IllegalArgumentException error) {
       System.out.println(error.getMessage() + " Try again...");
       return this.getUserSubstitutionKey();

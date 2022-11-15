@@ -1,20 +1,25 @@
 package cryptologyApp.model;
 
 public class SubstitutionKey {
-  private char key;
+  private String key;
+  private static final int CHAR_POSITION_ZERO = 0;
 
-  public SubstitutionKey(char key) {
+  public SubstitutionKey(String key) {
     this.validateKey(key);
     this.key = key;
   }
 
-  private void validateKey(char key) {
-    if (key < 0 || key > 255) {
+  private void validateKey(String key) {
+    if (key.length() != 1) {
+      throw new IllegalArgumentException("Key must be exactly one character in length.");
+    }
+
+    if (key.charAt(CHAR_POSITION_ZERO) < 0 || key.charAt(CHAR_POSITION_ZERO) > 255) {
       throw new IllegalArgumentException("Key must be part of the ASCII- or Extended ASCII-table.");
     }
   }
 
-  public char getKey() {
+  public String getKey() {
     return this.key;
   }
 }
