@@ -1,5 +1,6 @@
 package cryptologyApp.controller;
 
+import cryptologyApp.model.SubstitutionKey;
 import cryptologyApp.view.ConsoleView;
 import cryptologyApp.view.Menu.CryptologyAction;
 import cryptologyApp.view.Menu.EncryptionMethod;
@@ -18,8 +19,10 @@ public class MainController {
     this.view.displayCryptologyActionSelection();
     CryptologyAction selectedAction = this.view.getCryptologyActionSelection();
 
-    // Debug
-    System.out.println("You selected " + selectedMethod + " and " + selectedAction);
+    this.view.displayKeyInputDialogue(selectedMethod);
+    SubstitutionKey key = this.view.getUserSubstitutionKey();
 
+    // Debug
+    System.out.println("You selected " + selectedMethod + " and " + selectedAction + " with key: " + key.getKey());
   }
 }
