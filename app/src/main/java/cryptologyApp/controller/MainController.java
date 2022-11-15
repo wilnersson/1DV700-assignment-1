@@ -1,6 +1,7 @@
 package cryptologyApp.controller;
 
 import cryptologyApp.view.ConsoleView;
+import cryptologyApp.view.Menu.CryptologyAction;
 import cryptologyApp.view.Menu.EncryptionMethod;
 
 public class MainController {
@@ -12,10 +13,13 @@ public class MainController {
 
   public void start() {
     this.view.displayEncryptionMethodSelection();
-
     EncryptionMethod selectedMethod = this.view.getEncryptionMethodSelection();
 
+    this.view.displayCryptologyActionSelection();
+    CryptologyAction selectedAction = this.view.getCryptologyActionSelection();
+
     // Debug
-    System.out.println("You selected: " + selectedMethod);
+    System.out.println("You selected " + selectedMethod + " and " + selectedAction);
+
   }
 }

@@ -6,4 +6,9 @@ public class Menu {
     SUBSTITUTION,
     TRANSPOSITION
   }
+
+  public static enum CryptologyAction {
+    ENCRYPT,
+    DECRYPT
+  }
 }
