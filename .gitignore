@@ -35,3 +35,7 @@ build
 # Ignore all local history of files
 .history
 .ionide
+
+### App specific ###
+# Ignore local data folder
+app/data/*
