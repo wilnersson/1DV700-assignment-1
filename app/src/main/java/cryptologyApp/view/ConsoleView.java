@@ -1,6 +1,5 @@
 package cryptologyApp.view;
 
-import java.security.InvalidParameterException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -81,11 +80,11 @@ public class ConsoleView {
       String input = this.scanner.nextLine();
 
       if (input.length() < 1) {
-        throw new InvalidParameterException("Key must be at least 1 character.");
+        throw new IllegalArgumentException("Key must be at least 1 character.");
       }
 
       return new SubstitutionKey(input.charAt(0));
-    } catch (InvalidParameterException error) {
+    } catch (IllegalArgumentException error) {
       System.out.println(error.getMessage() + " Try again...");
       return this.getUserSubstitutionKey();
     }
