@@ -1,6 +1,6 @@
 package cryptologyApp.model;
 
-public class SubstitutionKey {
+public class SubstitutionKey implements KeyInterface {
   private String key;
   private static final int CHAR_POSITION_ZERO = 0;
 

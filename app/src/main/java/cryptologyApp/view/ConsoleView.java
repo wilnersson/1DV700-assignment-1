@@ -3,7 +3,9 @@ package cryptologyApp.view;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import cryptologyApp.model.KeyInterface;
 import cryptologyApp.model.SubstitutionKey;
+import cryptologyApp.model.TranspositionKey;
 import cryptologyApp.view.Menu.CryptologyAction;
 import cryptologyApp.view.Menu.EncryptionMethod;
 
@@ -75,14 +77,18 @@ public class ConsoleView {
     }
   }
 
-  public SubstitutionKey getUserSubstitutionKey() {
+  public KeyInterface getUserKey(EncryptionMethod encryptionMethod) {
     try {
       String input = this.scanner.nextLine();
 
-      return new SubstitutionKey(input);
+      if (encryptionMethod == EncryptionMethod.SUBSTITUTION) {
+        return new SubstitutionKey(input);
+      }
+
+      return new TranspositionKey(input);
     } catch (IllegalArgumentException error) {
       System.out.println(error.getMessage() + " Try again...");
-      return this.getUserSubstitutionKey();
+      return this.getUserKey(encryptionMethod);
     }
   }
 }

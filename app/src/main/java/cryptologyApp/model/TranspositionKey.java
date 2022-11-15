@@ -1,6 +1,6 @@
 package cryptologyApp.model;
 
-public class TranspositionKey {
+public class TranspositionKey implements KeyInterface {
   private String key;
 
   public TranspositionKey(String key) {
