@@ -91,4 +91,12 @@ public class ConsoleView {
       return this.getUserKey(encryptionMethod);
     }
   }
+
+  public void displaySourceFileNameInputDialogue() {
+    System.out.print("Enter source filename (must be located in the 'app/data' folder): ");
+  }
+
+  public String getSourceFileName() {
+    return this.scanner.nextLine();
+  }
 }
