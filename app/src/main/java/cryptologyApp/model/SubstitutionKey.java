@@ -22,4 +22,8 @@ public class SubstitutionKey implements KeyInterface {
   public String getKey() {
     return this.key;
   }
+
+  public char getKeyAsChar() {
+    return this.key.charAt(CHAR_POSITION_ZERO);
+  }
 }
