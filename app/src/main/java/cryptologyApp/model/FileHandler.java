@@ -21,7 +21,7 @@ public class FileHandler {
   public String readFromFile(String fileName) {
     try {
       File sourceFile = new File(PATH + fileName);
-      Scanner scanner = new Scanner(sourceFile);
+      Scanner scanner = new Scanner(sourceFile, "utf-8");
       String result = "";
 
       while (scanner.hasNextLine()) {
