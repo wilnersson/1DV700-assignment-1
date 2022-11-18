@@ -1,6 +1,6 @@
 package cryptologyApp.controller;
 
-import java.time.LocalDateTime;
+import java.io.FileNotFoundException;
 
 import cryptologyApp.model.FileHandler;
 import cryptologyApp.model.KeyInterface;
@@ -58,10 +58,14 @@ public class MainController {
   }
 
   private void setInput() {
-    FileHandler fileHandler = new FileHandler();
+    try {
+      FileHandler fileHandler = new FileHandler();
 
-    this.view.displaySourceFileNameInputDialogue();
-    this.input = fileHandler.readFromFile(this.view.getSourceFileName());
+      this.view.displaySourceFileNameInputDialogue();
+      this.input = fileHandler.readFromFile(this.view.getSourceFileName());
+    } catch (FileNotFoundException e) {
+      this.setInput();
+    }
   }
 
   private void runProgramCycle() {

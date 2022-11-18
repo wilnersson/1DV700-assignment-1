@@ -1,6 +1,7 @@
 package cryptologyApp.model;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class FileHandler {
     }
   }
 
-  public String readFromFile(String fileName) {
+  public String readFromFile(String fileName) throws FileNotFoundException {
     try {
       File sourceFile = new File(PATH + fileName);
       Scanner scanner = new Scanner(sourceFile, "utf-8");
@@ -36,7 +37,7 @@ public class FileHandler {
       return result;
     } catch (IOException error) {
       System.out.println(error.getMessage());
-      return "";
+      throw new FileNotFoundException();
     }
   }
 }
