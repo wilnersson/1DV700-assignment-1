@@ -24,8 +24,18 @@ public class TranspositionAlgorithm {
   }
 
   public String decrypt(String cipherText) {
-    // TODO: Add decrypt implementation.
+    StringBuilder plainText = new StringBuilder(cipherText);
+    String key = this.key.getKey();
 
-    return "";
+    for (int i = cipherText.length() - 1; i >= 0; i--) {
+      char currentChar = plainText.charAt(i);
+      int newPosition = ( i + key.charAt(i % key.length()) ) % cipherText.length();
+      char charOnNewPosition = plainText.charAt(newPosition);
+
+      plainText.setCharAt(i, charOnNewPosition);
+      plainText.setCharAt(newPosition, currentChar);
+    }
+
+    return plainText.toString();
   }
 }
