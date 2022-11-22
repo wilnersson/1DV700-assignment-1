@@ -26,7 +26,8 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'cryptologyApp.controller.App'
+    // mainClass = 'cryptologyApp.controller.App'
+    mainClass = 'hashApp.controller.App'
 }
 
 tasks.named('test') {
