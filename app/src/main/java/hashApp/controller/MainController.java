@@ -3,6 +3,7 @@ package hashApp.controller;
 import java.io.FileNotFoundException;
 
 import cryptologyApp.model.FileHandler;
+import hashApp.model.HashingAlgorithm;
 import hashApp.view.ConsoleView;
 
 public class MainController {
@@ -17,6 +18,8 @@ public class MainController {
 
   public void start() {
     this.setInput();
+    String hashes = this.generateHashes();
+    this.saveHashesToFile(hashes);
   }
 
   private void setInput() {
@@ -26,5 +29,23 @@ public class MainController {
     } catch (FileNotFoundException e) {
       this.setInput();
     }
+  }
+
+  private String generateHashes() {
+    String[] input = this.input.split("\n");
+    HashingAlgorithm hashingAlgorithm = new HashingAlgorithm();
+    String output = "";
+
+    for (String inputLine : input) {
+      output += hashingAlgorithm.hash(inputLine);
+      output += "\n";
+    }
+
+    return output;
+  }
+
+  private void saveHashesToFile(String hashes) {
+    String currentDateTime = java.time.LocalDateTime.now().toString();
+    this.fileHandler.writeToFile(hashes, "hashes_" + currentDateTime + ".txt");
   }
 }
