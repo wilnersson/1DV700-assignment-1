@@ -1,7 +1,12 @@
 package hashApp.controller;
 
+import hashApp.view.ConsoleView;
+
 public class App {
   public static void main(String[] args) {
-    System.out.println("Hello World!");
+    ConsoleView view = new ConsoleView();
+    MainController controller = new MainController(view);
+    
+    controller.start();
   }
 }
