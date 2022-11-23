@@ -6,11 +6,10 @@ public class HashingAlgorithm {
 
     for (int i = 0; i < input.length(); i++) {
       int currentCharValue  = input.charAt(i);
-      inputTotalValue += currentCharValue;
+      inputTotalValue += currentCharValue * currentCharValue;
     }
 
-    long inputValueSquared = inputTotalValue * inputTotalValue;
-    int result = (int)(inputValueSquared % 256);
+    int result = (int)(inputTotalValue % 256);
 
     return result;
   }
