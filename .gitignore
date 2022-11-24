@@ -39,3 +39,4 @@ build
 ### App specific ###
 # Ignore local data folder
 app/data/*
+!app/data/example.txt
