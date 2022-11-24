@@ -51,10 +51,8 @@ public class MainController {
 
   private void setInput() {
     try {
-      FileHandler fileHandler = new FileHandler();
-
       this.view.displaySourceFileNameInputDialogue();
-      this.input = fileHandler.readFromFile(this.view.getSourceFileName());
+      this.input = this.fileHandler.readFromFile(this.view.getSourceFileName());
     } catch (FileNotFoundException e) {
       this.setInput();
     }
